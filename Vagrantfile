@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: "yum install -y yum-utils ntp git vim tmux epel-release"
 
-  config.vm.provision "shell", inline: "systemctl enable ntpd"
+  config.vm.provision "shell", inline: "systemctl enable --now ntpd"
 
   config.vm.provision "shell", inline: "yum install -y python-pip"
   config.vm.provision "shell", inline: "pip install -U pip"
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
   config.vm.provision "shell", inline: "yum makecache fast"
   config.vm.provision "shell", inline: "yum install -y docker-ce"
-  config.vm.provision "shell", inline: "systemctl enable docker"
+  config.vm.provision "shell", inline: "systemctl enable --now docker"
 
   config.vm.provision "shell", inline: "usermod -aG docker vagrant"
 
