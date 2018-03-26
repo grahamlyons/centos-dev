@@ -14,10 +14,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: "yum update -y"
 
-  config.vm.provision "shell", inline: "yum install -y yum-utils ntp git vim tmux epel-release bind-utils"
-
-  config.vm.provision "shell", inline: "systemctl disable --now chronyd"
-  config.vm.provision "shell", inline: "systemctl enable --now ntpd"
+  config.vm.provision "shell", inline: "yum install -y yum-utils git vim tmux epel-release bind-utils"
 
   config.vm.provision "shell", inline: "yum install -y python-pip"
   config.vm.provision "shell", inline: "pip install -U pip"
