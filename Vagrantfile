@@ -12,6 +12,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "/Users/grahamlyons/workspace", "/home/vagrant/workspace/"
 
+  config.vm.provision "shell", inline: "rpm -qa | xargs yum reinstall -y"
   config.vm.provision "shell", inline: "yum update -y"
 
   config.vm.provision "shell", inline: "yum install -y yum-utils git vim tmux epel-release bind-utils"
